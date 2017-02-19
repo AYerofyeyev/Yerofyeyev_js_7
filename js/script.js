@@ -27,76 +27,108 @@ $(function() {
   .css({
     margin: "0 auto",
     textAlign: "center",
-    padding: 20,
-    width: 581
+    padding: 20
   })
   .appendTo("body")
   .append(
 
-    $("<div>")
-    .addClass("pure-menu pure-menu-horizontal pure-menu-scrollable")
-    .css({
-      display: "inline-block",
-      textAlign: "left",
-      height: 41,
-      border: "1px solid #ccc",
-      paddingLeft: 5,
-      width: 561
-    })
-    .append(
-
-      $("<ul>")
-      .addClass("pure-menu-list")
+    $("<form>")
+      .addClass("pure-form pure-form-aligned")
+      .css({
+        float: "left",
+        overflow: "hidden"
+      })
       .append(
-
-        $("<li>")
-        .addClass("pure-menu-item")
+        $("<fieldset>")
+          .append(
+            $("<div>")
+              .addClass("pure-control-group")
+              .append(
+                $("<label>Firstname</label>"),
+                $("<input>")
+              ),
+            $("<div>")
+              .addClass("pure-control-group")
+              .append(
+                $("<label>Lastname</label>"),
+                $("<input>")
+              ),
+            $("<div>")
+              .addClass("pure-control-group")
+              .append(
+                $("<label>Address</label>"),
+                $("<input>")
+              )
+            )
         .append(
-
-          $("<a>Nunc tincidunt</a>")
-          .attr("id", "menu1")
-          .addClass("pure-menu-link")
-          .css({cursor: "pointer"})
+          $("<button>Show help</button>")
+            .addClass("pure-button pure-button-primary")
+            .css({display: "block"})
         )
       )
-      .append(
-
-        $("<li>")
-        .addClass("pure-menu-item")
-        .append(
-
-          $("<a>Proin dolor</a>")
-          .attr("id", "menu2")
-          .addClass("pure-menu-link")
-          .css({cursor: "pointer"})
-        )
-      )
-      .append(
-
-        $("<li>")
-        .addClass("pure-menu-item")
-        .append(
-
-          $("<a>Aenean lacinia</a>")
-          .attr("id", "menu3")
-          .addClass("pure-menu-link")
-          .css({cursor: "pointer"})
-        )
-      )
-    )
   )
   .append(
     $("<section>")
-    .addClass("content")
-    .css({
-      display: "inline-block",
-      marginTop: "-5px",
-      padding: 5,
-      border: "1px solid #ccc",
-      textAlign: "left",
-      width: 549
-    })
-    .append(text)
+      .css({float: "right"})
+      .append(
+        $("<div>")
+          .addClass("pure-menu pure-menu-horizontal pure-menu-scrollable")
+          .css({
+            // display: "inline-block",
+            textAlign: "left",
+            height: 41,
+            border: "1px solid #ccc",
+            paddingLeft: 5,
+            width: 561,
+          })
+        .append(
+        $("<ul>")
+          .addClass("pure-menu-list")
+          .append(
+            $("<li>")
+              .addClass("pure-menu-item")
+              .append(
+                $("<a>Nunc tincidunt</a>")
+                  .attr("id", "menu1")
+                  .addClass("pure-menu-link")
+                  .css({cursor: "pointer"})
+              )
+            )
+          .append(
+            $("<li>")
+              .addClass("pure-menu-item")
+              .append(
+                $("<a>Proin dolor</a>")
+                  .attr("id", "menu2")
+                  .addClass("pure-menu-link")
+                  .css({cursor: "pointer"})
+              )
+          )
+          .append(
+            $("<li>")
+              .addClass("pure-menu-item")
+              .append(
+                $("<a>Aenean lacinia</a>")
+                  .attr("id", "menu3")
+                  .addClass("pure-menu-link")
+                  .css({cursor: "pointer"})
+              )
+          )
+        )
+      )
+    .append(
+      $("<article>")
+        .addClass("content")
+        .css({
+          // display: "inline-block",
+          marginTop: "-1px",
+          padding: 5,
+          border: "1px solid #ccc",
+          textAlign: "left",
+          width: 549
+        })
+        .append(text)
+    )
   );
   $(".pure-menu-link").on("click", function(){
     i = $(this).attr("id");
