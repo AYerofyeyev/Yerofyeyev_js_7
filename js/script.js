@@ -59,7 +59,7 @@ $(function() {
                       )
                     },
                     function() {
-                      $(".tooltip").fadeOut(1000)
+                      $(".tooltip").detach()
                     }
                   )
               ),
