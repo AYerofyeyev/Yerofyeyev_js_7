@@ -54,7 +54,10 @@ $(function() {
                         .addClass("tooltip")
                         .css({
                           position: "absolute",
-                          margin: "15px 0 0 400px"
+                          margin: "10px 0 0 400px",
+                          padding: 5,
+                          borderRadius: 3,
+                          boxShadow: "0 0 2px 2px #ccc"
                         })
                       )
                     },
@@ -68,14 +71,48 @@ $(function() {
               .append(
                 $("<label>Lastname</label>"),
                 $("<input>")
-                  .attr("id", "lastname")
+                  .hover(
+                    function() {
+                      $(".wrapper").append(
+                        $("<div>Please provide also your lastname.</div>")
+                        .addClass("tooltip")
+                        .css({
+                          position: "absolute",
+                          margin: "55px 0 0 400px",
+                          padding: 5,
+                          borderRadius: 3,
+                          boxShadow: "0 0 2px 2px #ccc"
+                        })
+                      )
+                    },
+                    function() {
+                      $(".tooltip").detach()
+                    }
+                  )
               ),
             $("<div>")
               .addClass("pure-control-group")
               .append(
                 $("<label>Address</label>"),
                 $("<input>")
-                  .attr("id", "address")
+                  .hover(
+                    function() {
+                      $(".wrapper").append(
+                      $("<div>Your home or work address.</div>")
+                        .addClass("tooltip")
+                        .css({
+                          position: "absolute",
+                          margin: "100px 0 0 400px",
+                          padding: 5,
+                          borderRadius: 3,
+                          boxShadow: "0 0 2px 2px #ccc"
+                      })
+                      )
+                    },
+                    function() {
+                      $(".tooltip").detach()
+                    }
+                  )
               )
             )
         .append(
