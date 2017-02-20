@@ -17,7 +17,47 @@ function showtext() {
   }
 };
 
-var j = "";
+function tooltipOne() {
+  $(".wrapper").append(
+    $("<div>Please provide your firstname.</div>")
+    .addClass("tooltip")
+    .css({
+      position: "absolute",
+      margin: "10px 0 0 400px",
+      padding: 5,
+      borderRadius: 3,
+      boxShadow: "0 0 2px 2px #ccc"
+    })
+  )
+};
+
+function tooltipTwo() {
+  $(".wrapper").append(
+    $("<div>Please provide also your lastname.</div>")
+    .addClass("tooltip")
+    .css({
+      position: "absolute",
+      margin: "55px 0 0 400px",
+      padding: 5,
+      borderRadius: 3,
+      boxShadow: "0 0 2px 2px #ccc"
+    })
+  )
+};
+
+function tooltipThree() {
+  $(".wrapper").append(
+  $("<div>Your home or work address.</div>")
+    .addClass("tooltip")
+    .css({
+      position: "absolute",
+      margin: "100px 0 0 400px",
+      padding: 5,
+      borderRadius: 3,
+      boxShadow: "0 0 2px 2px #ccc"
+    })
+  )
+};
 
 $(function() {
   console.log('Подключена версия jQuery 1.12.4 через google');
@@ -48,19 +88,7 @@ $(function() {
                 $("<label>Firstname</label>"),
                 $("<input>")
                   .hover(
-                    function() {
-                      $(".wrapper").append(
-                        $("<div>Please provide your firstname.</div>")
-                        .addClass("tooltip")
-                        .css({
-                          position: "absolute",
-                          margin: "10px 0 0 400px",
-                          padding: 5,
-                          borderRadius: 3,
-                          boxShadow: "0 0 2px 2px #ccc"
-                        })
-                      )
-                    },
+                    tooltipOne,
                     function() {
                       $(".tooltip").detach()
                     }
@@ -72,19 +100,7 @@ $(function() {
                 $("<label>Lastname</label>"),
                 $("<input>")
                   .hover(
-                    function() {
-                      $(".wrapper").append(
-                        $("<div>Please provide also your lastname.</div>")
-                        .addClass("tooltip")
-                        .css({
-                          position: "absolute",
-                          margin: "55px 0 0 400px",
-                          padding: 5,
-                          borderRadius: 3,
-                          boxShadow: "0 0 2px 2px #ccc"
-                        })
-                      )
-                    },
+                    tooltipTwo,
                     function() {
                       $(".tooltip").detach()
                     }
@@ -96,19 +112,7 @@ $(function() {
                 $("<label>Address</label>"),
                 $("<input>")
                   .hover(
-                    function() {
-                      $(".wrapper").append(
-                      $("<div>Your home or work address.</div>")
-                        .addClass("tooltip")
-                        .css({
-                          position: "absolute",
-                          margin: "100px 0 0 400px",
-                          padding: 5,
-                          borderRadius: 3,
-                          boxShadow: "0 0 2px 2px #ccc"
-                      })
-                      )
-                    },
+                    tooltipThree,
                     function() {
                       $(".tooltip").detach()
                     }
@@ -116,8 +120,13 @@ $(function() {
               )
             )
         .append(
-          $("<button>Show help</button>")
+          $("<div>Show help</div>")
             .addClass("pure-button pure-button-primary")
+            .on("click", function(){
+              tooltipOne();
+              tooltipTwo();
+              tooltipThree();
+            })
         )
       )
   )
@@ -146,9 +155,9 @@ $(function() {
                   .attr("id", "menu1")
                   .addClass("pure-menu-link")
                   .css({cursor: "pointer"})
-              )
-            )
-          .append(
+              ),
+            // )
+          // .append(
             $("<li>")
               .addClass("pure-menu-item")
               .append(
@@ -156,9 +165,9 @@ $(function() {
                   .attr("id", "menu2")
                   .addClass("pure-menu-link")
                   .css({cursor: "pointer"})
-              )
-          )
-          .append(
+              ),
+          // )
+          // .append(
             $("<li>")
               .addClass("pure-menu-item")
               .append(
@@ -190,15 +199,4 @@ $(function() {
     $("p").replaceWith(text);
   });
 
-  // $("input").hover(
-  //   function() {
-  //     $(this).append(
-  //       $("<p>")
-  //       .addClass("tootip")
-  //       .append("Please provide your firstname.")
-  //     );
-  //   },
-  //   function() {
-  //     $("input").remove(".tooltip");
-  //   });
 })
