@@ -36,6 +36,7 @@ $(function() {
       .addClass("pure-form pure-form-aligned")
       .css({
         float: "left",
+        position: "relative",
         overflow: "hidden"
       })
       .append(
@@ -46,7 +47,21 @@ $(function() {
               .append(
                 $("<label>Firstname</label>"),
                 $("<input>")
-                  .attr("id", "firstname")
+                  .hover(
+                    function() {
+                      $(".wrapper").append(
+                        $("<div>Please provide your firstname.</div>")
+                        .addClass("tooltip")
+                        .css({
+                          position: "absolute",
+                          margin: "15px 0 0 400px"
+                        })
+                      )
+                    },
+                    function() {
+                      $(".tooltip").fadeOut(1000)
+                    }
+                  )
               ),
             $("<div>")
               .addClass("pure-control-group")
@@ -138,15 +153,15 @@ $(function() {
     $("p").replaceWith(text);
   });
 
-  $("input").hover(
-    function() {
-      $(this).append(
-        $("<p>")
-        .addClass("tootip")
-        .append("Please provide your firstname.")
-      );
-    },
-    function() {
-      $("input").remove(".tooltip");
-    });
+  // $("input").hover(
+  //   function() {
+  //     $(this).append(
+  //       $("<p>")
+  //       .addClass("tootip")
+  //       .append("Please provide your firstname.")
+  //     );
+  //   },
+  //   function() {
+  //     $("input").remove(".tooltip");
+  //   });
 })
